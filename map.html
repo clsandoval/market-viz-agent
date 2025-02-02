@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~9.0.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "latitude": 14.585932925,
+    "longitude": 121.02547695,
+    "pitch": 50,
+    "zoom": 10
+  },
+  "layers": [
+    {
+      "@@type": "HexagonLayer",
+      "data": [
+        {
+          "latitude": 14.6593292,
+          "longitude": 121.0377814,
+          "value": 4.7
+        },
+        {
+          "latitude": 14.5579889,
+          "longitude": 121.046218,
+          "value": 4.1
+        },
+        {
+          "latitude": 14.675465099999998,
+          "longitude": 121.0540915,
+          "value": 5.0
+        },
+        {
+          "latitude": 14.6138333,
+          "longitude": 121.0376005,
+          "value": 4.3
+        },
+        {
+          "latitude": 14.56271,
+          "longitude": 121.0193587,
+          "value": 4.2
+        },
+        {
+          "latitude": 14.5264712,
+          "longitude": 120.9854273,
+          "value": 5.0
+        },
+        {
+          "latitude": 14.541369,
+          "longitude": 120.9948989,
+          "value": 4.1
+        },
+        {
+          "latitude": 14.550296699999999,
+          "longitude": 121.02843929999999,
+          "value": 0.0
+        }
+      ],
+      "elevationRange": [
+        0,
+        3000
+      ],
+      "elevationScale": 50,
+      "extruded": true,
+      "getElevation": "@@=value",
+      "getPosition": "@@=[longitude, latitude]",
+      "id": "9bc3b3ff-ac9c-4613-8828-4018b86356f2",
+      "pickable": true,
+      "radius": 500
+    }
+  ],
+  "mapProvider": "carto",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = true;
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>
